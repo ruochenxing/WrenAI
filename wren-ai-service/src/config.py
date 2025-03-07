@@ -66,7 +66,7 @@ class Settings(BaseSettings):
     sql_pairs_path: str = Field(default="sql_pairs.json")
 
     def __init__(self):
-        load_dotenv(".env.dev", override=True)
+        load_dotenv("D:\\projects\\WrenAI\\wren-ai-service\\.env.dev", override=True)
         super().__init__()
         raw = self.config_loader()
         self.override(raw)
@@ -107,3 +107,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+print(settings.components)

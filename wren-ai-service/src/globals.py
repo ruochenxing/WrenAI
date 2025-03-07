@@ -247,7 +247,7 @@ def get_service_container():
 
 def create_service_metadata(
     pipe_components: dict[str, PipelineComponent],
-    pyproject_path: str = "pyproject.toml",
+    pyproject_path: str = "D:\\projects\\WrenAI\\pyproject.toml",
 ) -> ServiceMetadata:
     """
     This service metadata is used for logging purposes and will be sent to Langfuse.

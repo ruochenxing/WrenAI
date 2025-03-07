@@ -147,7 +147,7 @@ def document_store_processor(entry: dict) -> dict:
         "type": "document_store",
         "provider": "qdrant",
         "location": "http://localhost:6333",
-        "embedding_model_dim": 3072,
+        "embedding_model_dim": 1024,
         "timeout": 120,
         "recreate_index": False,
     }
@@ -158,7 +158,7 @@ def document_store_processor(entry: dict) -> dict:
         "qdrant": {
             "provider": "qdrant",
             "location": "http://localhost:6333",
-            "embedding_model_dim": 3072,
+            "embedding_model_dim": 1024,
             "timeout": 120,
             "recreate_index": False,
         }

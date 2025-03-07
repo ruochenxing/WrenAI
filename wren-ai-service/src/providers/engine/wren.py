@@ -53,6 +53,7 @@ class WrenUI(Engine):
                 timeout=aiohttp.ClientTimeout(total=timeout),
             ) as response:
                 res = await response.json()
+                print(res)
                 if data := res.get("data"):
                     data = data.get("previewSql", {}) if data else {}
                     return (

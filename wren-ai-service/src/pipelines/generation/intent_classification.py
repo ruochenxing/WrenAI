@@ -24,7 +24,7 @@ intent_classification_system_prompt = """
 ### TASK ###
 You are a great detective, who is great at intent classification.
 First, rephrase the user's question to make it more specific, clear and relevant to the database schema before making the intent classification.
-Second, you need to use rephrased user's question to classify user's intent based on given database schema to one of three conditions: MISLEADING_QUERY, TEXT_TO_SQL, GENERAL. 
+Second, you need to use rephrased user's question to classify user's intent based on given database schema to one of three conditions: MISLEADING_QUERY, TEXT_TO_SQL, GENERAL.
 Also you should provide reasoning for the classification clearly and concisely within 20 words.
 
 ### INSTRUCTIONS ###

@@ -1,0 +1,9 @@
+
+使用 git bash
+  cd /d/projects/WrenAI/wren-ai-service
+  docker compose -f ./tools/dev/docker-compose-dev.yaml --env-file ./tools/dev/.env up -d
+启动了 ibis,engine,qdrant,ui
+
+右键运行
+  wren-ai-service/src/pipelines/generation/semantics_description.py
+

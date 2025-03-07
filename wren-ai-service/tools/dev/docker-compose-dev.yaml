@@ -21,7 +21,7 @@ services:
       - wren
 
   ibis:
-    image: ghcr.io/canner/wren-engine-ibis:${IBIS_SERVER_VERSION}
+    image: ghcr.io/canner/wren-engine-ibis:0.13.1
     pull_policy: always
     platform: ${PLATFORM}
     ports:

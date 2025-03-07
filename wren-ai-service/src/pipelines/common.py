@@ -39,24 +39,25 @@ def dry_run_pipeline(
     method: str = "run",
     **kwargs,
 ):
-    from langfuse.decorators import langfuse_context
-
     from src.config import settings
     from src.core.pipeline import async_validate
     from src.providers import generate_components
-    from src.utils import init_langfuse, setup_custom_logger
+    from src.utils import setup_custom_logger
 
     setup_custom_logger(
         "wren-ai-service", level_str=settings.logging_level, is_dev=True
     )
-
+    print("====================================================")
+    print(settings)
+    print(settings.components)
+    print("====================================================")
     pipe_components = generate_components(settings.components)
     pipeline = pipeline_cls(**pipe_components[pipeline_name])
-    init_langfuse(settings)
+    # init_langfuse(settings)
 
     async_validate(lambda: getattr(pipeline, method)(**kwargs))
 
-    langfuse_context.flush()
+    # langfuse_context.flush()
 
 
 @component

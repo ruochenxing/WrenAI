@@ -155,7 +155,7 @@ class AsyncQdrantDocumentStore(QdrantDocumentStore):
             force_disable_check_same_thread=force_disable_check_same_thread,
             metadata=metadata or {},
         )
-
+        self.recreate_index = True
         # to improve the indexing performance
         # see https://qdrant.tech/documentation/guides/multiple-partitions/?q=mul#calibrate-performance
         self.client.create_payload_index(
@@ -373,11 +373,6 @@ class QdrantProvider(DocumentStoreProvider):
         timeout: Optional[int] = (
             int(os.getenv("QDRANT_TIMEOUT")) if os.getenv("QDRANT_TIMEOUT") else 120
         ),
-        embedding_model_dim: int = (
-            int(os.getenv("EMBEDDING_MODEL_DIMENSION"))
-            if os.getenv("EMBEDDING_MODEL_DIMENSION")
-            else 0
-        ),
         recreate_index: bool = (
             bool(os.getenv("SHOULD_FORCE_DEPLOY"))
             if os.getenv("SHOULD_FORCE_DEPLOY")
@@ -388,7 +383,7 @@ class QdrantProvider(DocumentStoreProvider):
         self._location = location
         self._api_key = Secret.from_token(api_key) if api_key else None
         self._timeout = timeout
-        self._embedding_model_dim = embedding_model_dim
+        self._embedding_model_dim = 1024
         self._reset_document_store(recreate_index)
 
     def _reset_document_store(self, recreate_index: bool):

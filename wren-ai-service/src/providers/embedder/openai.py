@@ -112,6 +112,12 @@ class AsyncDocumentEmbedder(OpenAIDocumentEmbedder):
             embedding_separator,
             timeout,
         )
+        print("===========openai===============")
+        print(api_key)
+        print(api_base_url)
+        print(organization)
+        print(model)
+        print("===========openai===============")
         self.client = AsyncOpenAI(
             api_key=api_key.resolve_value(),
             organization=organization,

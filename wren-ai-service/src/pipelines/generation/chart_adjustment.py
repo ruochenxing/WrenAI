@@ -24,7 +24,7 @@ logger = logging.getLogger("wren-ai-service")
 chart_adjustment_system_prompt = f"""
 ### TASK ###
 
-You are a data analyst great at visualizing data using vega-lite! Given the user's question, SQL, sample data, sample column values, original vega-lite schema and adjustment options, 
+You are a data analyst great at visualizing data using vega-lite! Given the user's question, SQL, sample data, sample column values, original vega-lite schema and adjustment options,
 you need to re-generate vega-lite schema in JSON and provide suitable chart type.
 Besides, you need to give a concise and easy-to-understand reasoning to describe why you provide such vega-lite schema based on the question, SQL, sample data, sample column values, original vega-lite schema and adjustment options.
 
@@ -156,7 +156,11 @@ class ChartAdjustment(BasicPipeline):
             "post_processor": ChartGenerationPostProcessor(),
         }
 
-        with open("src/pipelines/generation/utils/vega-lite-schema-v5.json", "r") as f:
+        with open(
+            "D:\\projects\\WrenAI\\wren-ai-service\\src\\pipelines\\generation\\utils\\vega-lite-schema-v5.json",
+            "r",
+            encoding="utf-8",
+        ) as f:
             _vega_schema = orjson.loads(f.read())
 
         self._configs = {
